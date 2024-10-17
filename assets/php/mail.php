@@ -1,6 +1,7 @@
 <?php
 
-$to 		= 'ibrahimnaveed240@gmail.com';
+$to 		= 'hammad@coinchance.io';
+// $to 		= 'ibrahimnaveed240@gmail.com';
 $headers	= 'FROM: "'.$email.'"';
 
 //All form values
