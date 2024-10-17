@@ -215,14 +215,15 @@
         msg = $.trim(msg);
 
         if (name != '' && email != '' && msg != '') {
-          var values = "name=" + name +
-            "&subject=" + subject +
-            "&phone=" + phone +
-            "&email=" + email +
-            "&msg=" + msg;
+          var values = { 'Name': name, 'Email': email, 'Subject': subject, 'Message': msg };
+          // var values = "name=" + name +
+          //   "&subject=" + subject +
+          //   "&phone=" + phone +
+          //   "&email=" + email +
+          //   "&msg=" + msg;
           $.ajax({
             type: "POST",
-            url: "assets/php/mail.php",
+            url: "https://script.google.com/macros/s/AKfycbzge56MEoH6NFpj6X19YY8hpqsAqpOeKVoTn-JJISnC-l8978ck1GxbfV1CZK6P714Dmw/exec",
             data: values,
             success: function () {
               $('#name').val('');
@@ -230,11 +231,14 @@
               $('#phone').val('');
               $('#email').val('');
               $('#msg').val('');
-
+              
               $('#st-alert').fadeIn().html('<div class="alert alert-success"><strong>Success!</strong> Email has been sent successfully.</div>');
               setTimeout(function () {
                 $('#st-alert').fadeOut('slow');
               }, 4000);
+            },
+            error: function(xhr) {
+              console.log(xhr);
             }
           });
         } else {
